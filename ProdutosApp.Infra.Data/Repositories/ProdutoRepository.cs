@@ -10,6 +10,12 @@ namespace ProdutosApp.Infra.Data.Repositories
     public class ProdutoRepository
     {
         private readonly DataContext context;
+
+        public ProdutoRepository(DataContext context)
+        {
+            this.context = context;
+        }
+
         public async Task AdicionarAsync(Produto produto)
         {
             await context.AddAsync(produto);

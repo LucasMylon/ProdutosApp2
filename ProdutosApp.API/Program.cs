@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProdutosApp.Infra.Data.Contexts;
+using ProdutosApp.Infra.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BDProdutosAPP")));
+
+builder.Services.AddScoped<ProdutoRepository>();
 
 var app = builder.Build();
 
